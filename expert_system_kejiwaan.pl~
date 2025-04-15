@@ -1,0 +1,117 @@
+% Fakta awal
+:- dynamic(gejala/1).
+
+% RULE PENYAKIT
+
+% PSIKOPAT
+penyakit(psikopat) :-
+    gejala(gp01), gejala(gp02), gejala(gp03),
+    gejala(gp04), gejala(gp05), gejala(gp06),
+    gejala(gp07), gejala(gp08).
+
+% SKIZOFRENIA DISORGANIZED
+penyakit(skizofrenia_disorganized) :-
+    gejala(gp09), gejala(gp10).
+
+% SKIZOFRENIA KATATONIK
+penyakit(skizofrenia_katatonik) :-
+    gejala(gp11), gejala(gp12), gejala(gp13),
+    gejala(gp14), gejala(gp15), gejala(gp16),
+    gejala(gp17).
+
+% SKIZOFRENIA PARANOID
+penyakit(skizofrenia_paranoid) :-
+    gejala(gp18), gejala(gp19), gejala(gp20),
+    gejala(gp21).
+
+% BIPOLAR TIPE I
+penyakit(bipolar_tipe1) :-
+    gejala(gp22), gejala(gp23), gejala(gp24),
+    gejala(gp25), gejala(gp26), gejala(gp27),
+    gejala(gp28), gejala(gp29), gejala(gp30),
+    gejala(gp31), gejala(gp32), gejala(gp33).
+
+% BIPOLAR TIPE II
+penyakit(bipolar_tipe2) :-
+    gejala(gp34), gejala(gp35), gejala(gp36),
+    gejala(gp37), gejala(gp38), gejala(gp39),
+    gejala(gp40), gejala(gp41), gejala(gp42),
+    gejala(gp43), gejala(gp44), gejala(gp45).
+
+% Pertanyaan Gejala (Sesuaikan deskripsi sesuai kebutuhan)
+tanya(gp01, '[01]Ingin bahagia seperti orang lain').
+tanya(gp02, '[02]Tersumbat di leher').
+tanya(gp03, '[03]Pikiran buruk').
+tanya(gp04, '[04]Tertawa & menangis tak terkendali?').
+tanya(gp05, '[05]Sering murung').
+tanya(gp06, '[06]Penyesalan berlebih').
+tanya(gp07, '[07]Sering murung').
+tanya(gp08, '[08]Bertarung dengan diri sendiri').
+tanya(gp09, '[09]Pikiran terasa asing').
+tanya(gp10, '[10]Kelakuan seperti anak kecil').
+tanya(gp11, '[11]Merasa tidak berharga').
+tanya(gp12, '[12]Perubahan berat badan drastis').
+tanya(gp13, '[13]Kurang reaktif terhadap lingkungan').
+tanya(gp14, '[14]Gelisah').
+tanya(gp15, '[15]Posisi tubuh tertentu').
+tanya(gp16, '[16]Pengulangan kata').
+tanya(gp17, '[17]Posisi tubuh tidak wajar').
+tanya(gp18, '[18]Halusinasi berlebihan').
+tanya(gp19, '[19]Merasa orang iri?').
+tanya(gp20, '[20]Merasa dimata-matai').
+tanya(gp21, '[21]Tidak bisa bahagia').
+tanya(gp22, '[22]Susah tidur').
+tanya(gp23, '[23]Merasa tidak berharga').
+tanya(gp24, '[24]Ingin bunuh diri').
+tanya(gp25, '[25]Pola makan ekstrem').
+tanya(gp26, '[26]Euforia tinggi').
+tanya(gp27, '[27]Optimis & gelisah').
+tanya(gp28, '[28]Energi berlebih').
+tanya(gp29, '[29]Percaya diri tinggi').
+tanya(gp30, '[30]Bicara tak biasa').
+tanya(gp31, '[31]Sedih mendalam').
+tanya(gp32, '[32]Cepat marah').
+tanya(gp33, '[33]Mudah tersinggung').
+tanya(gp34, '[34]Susah tidur').
+tanya(gp35, '[35]Merasa tidak berharga').
+tanya(gp36, '[36]Sulit konsentrasi').
+tanya(gp37, '[37]Pola makan ekstrem').
+tanya(gp38, '[38]Percaya diri tinggi').
+tanya(gp39, '[39]Mudah tersinggung').
+tanya(gp40, '[40]Mood swing ekstrem').
+tanya(gp41, '[41]Hilang minat aktivitas').
+tanya(gp42, '[42]Halusinasi ringan').
+tanya(gp43, '[43]Lelah berlebihan').
+tanya(gp44, '[44]Putus asa').
+tanya(gp45, '[45]Serangan kantuk mendadak').
+
+% Proses konsultasi interaktif
+
+konsultasi :-
+    retractall(gejala(_)),
+    tanya_semua_gejala,
+    (   diagnosa(P) -> format('Kemungkinan Anda mengalami: ~w~n', [P])
+    ;   write('Maaf, tidak dapat menentukan penyakit berdasarkan gejala yang diberikan.'), nl
+    ).
+
+% Menanyakan semua gejala
+tanya_semua_gejala :-
+    findall(Kode, tanya(Kode, _), DaftarGejala),
+    tanya_gejala_list(DaftarGejala).
+
+tanya_gejala_list([]).
+tanya_gejala_list([Kode|Rest]) :-
+    tanya(Kode, Pertanyaan),
+    format('~w (y/n)? ', [Pertanyaan]),
+    read(Jawaban),
+    (Jawaban == y -> assertz(gejala(Kode)) ; true),
+    tanya_gejala_list(Rest).
+
+% Cek diagnosis
+diagnosa(P) :- penyakit(P).
+
+:-
+    writeln("=========================== Sistem Pakar Diagnosis Penyakit Kejiwaan ==================================="),
+    writeln(""),
+    writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan di sistem kami").
+
