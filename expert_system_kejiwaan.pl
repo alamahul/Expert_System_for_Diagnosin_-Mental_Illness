@@ -92,7 +92,9 @@ konsultasi :-
     tanya_semua_gejala,
     (   diagnosa(P) -> format('Kemungkinan Anda mengalami: ~w~n', [P])
     ;   write('Maaf, tidak dapat menentukan penyakit berdasarkan gejala yang diberikan.'), nl
-    ).
+    ),
+    writeln(""),
+    writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan konsultasi di sistem kami").
 
 % Menanyakan semua gejala
 tanya_semua_gejala :-
@@ -113,5 +115,13 @@ diagnosa(P) :- penyakit(P).
 :-
     writeln("=========================== SISTEM PAKAR DIAGNOSIS PENYAKIT KEJIWAAN ==================================="),
     writeln(""),
+    writeln("Di sistem memungkinkan anda untuk berkonsultasi untuk kemungkinan gejala kejiwaan berikut:"),
+     writeln("1. Psikopat"),
+     writeln("2. Skizofrenia Disorganized"),
+     writeln("3. Skizofrenia Katatonik"),
+     writeln("4. Skizofrenia Paranoid)"),
+     writeln("5. Bipolar Tipe 1"),
+     writeln("6. Bipolar Tipe 2"),
+     writeln(""),
     writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan konsultasi di sistem kami").
 
