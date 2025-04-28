@@ -1,127 +1,134 @@
-% Fakta awal
 :- dynamic(gejala/1).
 
 % RULE PENYAKIT
+penyakit(psikopat) :- gejala(gp01), gejala(gp02), gejala(gp03), gejala(gp04),
+                      gejala(gp05), gejala(gp06), gejala(gp07), gejala(gp08).
 
-% PSIKOPAT
-penyakit(psikopat) :-
-    gejala(gp01), gejala(gp02), gejala(gp03),
-    gejala(gp04), gejala(gp05), gejala(gp06),
-    gejala(gp07), gejala(gp08).
+penyakit(skizofrenia_disorganized) :- gejala(gp09), gejala(gp10).
 
-% SKIZOFRENIA DISORGANIZED
-penyakit(skizofrenia_disorganized) :-
-    gejala(gp09), gejala(gp10).
+penyakit(skizofrenia_katatonik) :- gejala(gp11), gejala(gp12), gejala(gp13),
+                                   gejala(gp14), gejala(gp15), gejala(gp16),
+                                   gejala(gp17).
 
-% SKIZOFRENIA KATATONIK
-penyakit(skizofrenia_katatonik) :-
-    gejala(gp11), gejala(gp12), gejala(gp13),
-    gejala(gp14), gejala(gp15), gejala(gp16),
-    gejala(gp17).
+penyakit(skizofrenia_paranoid) :- gejala(gp18), gejala(gp19),
+                                  gejala(gp20), gejala(gp21).
 
-% SKIZOFRENIA PARANOID
-penyakit(skizofrenia_paranoid) :-
-    gejala(gp18), gejala(gp19), gejala(gp20),
-    gejala(gp21).
+penyakit(bipolar_tipe1) :- gejala(gp22), gejala(gp23), gejala(gp24),
+                           gejala(gp25), gejala(gp26), gejala(gp27),
+                           gejala(gp28), gejala(gp29), gejala(gp30),
+                           gejala(gp31), gejala(gp32), gejala(gp33).
 
-% BIPOLAR TIPE I
-penyakit(bipolar_tipe1) :-
-    gejala(gp22), gejala(gp23), gejala(gp24),
-    gejala(gp25), gejala(gp26), gejala(gp27),
-    gejala(gp28), gejala(gp29), gejala(gp30),
-    gejala(gp31), gejala(gp32), gejala(gp33).
+penyakit(bipolar_tipe2) :- gejala(gp34), gejala(gp35), gejala(gp36),
+                           gejala(gp37), gejala(gp38), gejala(gp39),
+                           gejala(gp40), gejala(gp41), gejala(gp42),
+                           gejala(gp43), gejala(gp44), gejala(gp45).
+% Pertanyaan Gejala
+tanya(gp01, '[01] Ingin bahagia seperti orang lain').
+tanya(gp02, '[02] Tersumbat di leher').
+tanya(gp03, '[03] Pikiran buruk').
+tanya(gp04, '[04] Tertawa & menangis tak terkendali').
+tanya(gp05, '[05] Sering murung').
+tanya(gp06, '[06] Penyesalan berlebih').
+tanya(gp07, '[07] Sering murung').
+tanya(gp08, '[08] Bertarung dengan diri sendiri').
+tanya(gp09, '[09] Pikiran terasa asing').
+tanya(gp10, '[10] Kelakuan seperti anak kecil').
+tanya(gp11, '[11] Merasa tidak berharga').
+tanya(gp12, '[12] Perubahan berat badan drastis').
+tanya(gp13, '[13] Kurang reaktif terhadap lingkungan').
+tanya(gp14, '[14] Gelisah').
+tanya(gp15, '[15] Posisi tubuh tertentu').
+tanya(gp16, '[16] Pengulangan kata').
+tanya(gp17, '[17] Posisi tubuh tidak wajar').
+tanya(gp18, '[18] Halusinasi berlebihan').
+tanya(gp19, '[19] Merasa orang iri').
+tanya(gp20, '[20] Merasa dimata-matai').
+tanya(gp21, '[21] Tidak bisa bahagia').
+tanya(gp22, '[22] Susah tidur').
+tanya(gp23, '[23] Merasa tidak berharga').
+tanya(gp24, '[24] Ingin bunuh diri').
+tanya(gp25, '[25] Pola makan ekstrem').
+tanya(gp26, '[26] Euforia tinggi').
+tanya(gp27, '[27] Optimis & gelisah').
+tanya(gp28, '[28] Energi berlebih').
+tanya(gp29, '[29] Percaya diri tinggi').
+tanya(gp30, '[30] Bicara tak biasa').
+tanya(gp31, '[31] Sedih mendalam').
+tanya(gp32, '[32] Cepat marah').
+tanya(gp33, '[33] Mudah tersinggung').
+tanya(gp34, '[34] Susah tidur').
+tanya(gp35, '[35] Merasa tidak berharga').
+tanya(gp36, '[36] Sulit konsentrasi').
+tanya(gp37, '[37] Pola makan ekstrem').
+tanya(gp38, '[38] Percaya diri tinggi').
+tanya(gp39, '[39] Mudah tersinggung').
+tanya(gp40, '[40] Mood swing ekstrem').
+tanya(gp41, '[41] Hilang minat aktivitas').
+tanya(gp42, '[42] Halusinasi ringan').
+tanya(gp43, '[43] Lelah berlebihan').
+tanya(gp44, '[44] Putus asa').
+tanya(gp45, '[45] Serangan kantuk mendadak').
 
-% BIPOLAR TIPE II
-penyakit(bipolar_tipe2) :-
-    gejala(gp34), gejala(gp35), gejala(gp36),
-    gejala(gp37), gejala(gp38), gejala(gp39),
-    gejala(gp40), gejala(gp41), gejala(gp42),
-    gejala(gp43), gejala(gp44), gejala(gp45).
-
-% Pertanyaan Gejala (Sesuaikan deskripsi sesuai kebutuhan)
-tanya(gp01, '[01]Ingin bahagia seperti orang lain').
-tanya(gp02, '[02]Tersumbat di leher').
-tanya(gp03, '[03]Pikiran buruk').
-tanya(gp04, '[04]Tertawa & menangis tak terkendali?').
-tanya(gp05, '[05]Sering murung').
-tanya(gp06, '[06]Penyesalan berlebih').
-tanya(gp07, '[07]Sering murung').
-tanya(gp08, '[08]Bertarung dengan diri sendiri').
-tanya(gp09, '[09]Pikiran terasa asing').
-tanya(gp10, '[10]Kelakuan seperti anak kecil').
-tanya(gp11, '[11]Merasa tidak berharga').
-tanya(gp12, '[12]Perubahan berat badan drastis').
-tanya(gp13, '[13]Kurang reaktif terhadap lingkungan').
-tanya(gp14, '[14]Gelisah').
-tanya(gp15, '[15]Posisi tubuh tertentu').
-tanya(gp16, '[16]Pengulangan kata').
-tanya(gp17, '[17]Posisi tubuh tidak wajar').
-tanya(gp18, '[18]Halusinasi berlebihan').
-tanya(gp19, '[19]Merasa orang iri?').
-tanya(gp20, '[20]Merasa dimata-matai').
-tanya(gp21, '[21]Tidak bisa bahagia').
-tanya(gp22, '[22]Susah tidur').
-tanya(gp23, '[23]Merasa tidak berharga').
-tanya(gp24, '[24]Ingin bunuh diri').
-tanya(gp25, '[25]Pola makan ekstrem').
-tanya(gp26, '[26]Euforia tinggi').
-tanya(gp27, '[27]Optimis & gelisah').
-tanya(gp28, '[28]Energi berlebih').
-tanya(gp29, '[29]Percaya diri tinggi').
-tanya(gp30, '[30]Bicara tak biasa').
-tanya(gp31, '[31]Sedih mendalam').
-tanya(gp32, '[32]Cepat marah').
-tanya(gp33, '[33]Mudah tersinggung').
-tanya(gp34, '[34]Susah tidur').
-tanya(gp35, '[35]Merasa tidak berharga').
-tanya(gp36, '[36]Sulit konsentrasi').
-tanya(gp37, '[37]Pola makan ekstrem').
-tanya(gp38, '[38]Percaya diri tinggi').
-tanya(gp39, '[39]Mudah tersinggung').
-tanya(gp40, '[40]Mood swing ekstrem').
-tanya(gp41, '[41]Hilang minat aktivitas').
-tanya(gp42, '[42]Halusinasi ringan').
-tanya(gp43, '[43]Lelah berlebihan').
-tanya(gp44, '[44]Putus asa').
-tanya(gp45, '[45]Serangan kantuk mendadak').
-
-% Proses konsultasi interaktif
-
+% Proses konsultasi efisien
 konsultasi :-
     retractall(gejala(_)),
-    tanya_semua_gejala,
-    (   diagnosa(P) -> format('Kemungkinan Anda mengalami: ~w~n', [P])
-    ;   write('Maaf, tidak dapat menentukan penyakit berdasarkan gejala yang diberikan.'), nl
+    diagnosa(Penyakit),
+    ( Penyakit \= tidak_ditemukan ->
+        format('Kemungkinan Anda mengalami: ~w~n', [Penyakit])
+    ;
+        writeln('Maaf, tidak dapat menentukan penyakit berdasarkan gejala yang diberikan.')
     ),
     writeln(""),
-    writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan konsultasi di sistem kami").
+    writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan konsultasi lagi.").
 
-% Menanyakan semua gejala
-tanya_semua_gejala :-
-    findall(Kode, tanya(Kode, _), DaftarGejala),
-    tanya_gejala_list(DaftarGejala).
+% Proses diagnosa dengan efisiensi: skip jika ada gejala "n"
+diagnosa(Penyakit) :-
+    daftar_penyakit(ListPenyakit),
+    cek_penyakit(ListPenyakit, Penyakit).
 
-tanya_gejala_list([]).
-tanya_gejala_list([Kode|Rest]) :-
+cek_penyakit([], tidak_ditemukan).
+cek_penyakit([NamaPenyakit|Rest], Penyakit) :-
+    daftar_gejala(NamaPenyakit, GejalaList),
+    cek_gejala(GejalaList) -> Penyakit = NamaPenyakit ;
+    cek_penyakit(Rest, Penyakit).
+
+% Mengecek satu per satu gejala dalam satu penyakit
+cek_gejala([]).
+cek_gejala([KodeGejala|Rest]) :-
+    ( gejala(KodeGejala) -> true ;
+      (tanya_gejala(KodeGejala), gejala(KodeGejala))
+    ),
+    cek_gejala(Rest).
+
+% Menanyakan gejala ke user
+tanya_gejala(Kode) :-
     tanya(Kode, Pertanyaan),
     format('~w (y/n)? ', [Pertanyaan]),
     read(Jawaban),
-    (Jawaban == y -> assertz(gejala(Kode)) ; true),
-    tanya_gejala_list(Rest).
+    (Jawaban == y -> assertz(gejala(Kode)) ; fail). % Kalau "n", langsung fail penyakit ini
 
-% Cek diagnosis
-diagnosa(P) :- penyakit(P).
+% Daftar penyakit
+daftar_penyakit([psikopat, skizofrenia_disorganized, skizofrenia_katatoniK, skizofrenia_paranoid, bipolar_tipe1, bipolar_tipe2]).
 
+% Daftar gejala setiap penyakit
+daftar_gejala(psikopat, [gp01, gp02, gp03, gp04, gp05, gp06, gp07, gp08]).
+daftar_gejala(skizofrenia_disorganized, [gp09, gp10]).
+daftar_gejala(skizofrenia_katatoniK, [gp11, gp12, gp13, gp14, gp15, gp16, gp17]).
+daftar_gejala(skizofrenia_paranoid, [gp18, gp19, gp20, gp21]).
+daftar_gejala(bipolar_tipe1, [gp22, gp23, gp24, gp25, gp26, gp27, gp28, gp29, gp30, gp31, gp32, gp33]).
+daftar_gejala(bipolar_tipe2, [gp34, gp35, gp36, gp37, gp38, gp39, gp40, gp41, gp42, gp43, gp44, gp45]).
+
+
+% Saat program dijalankan
 :-
     writeln("=========================== SISTEM PAKAR DIAGNOSIS PENYAKIT KEJIWAAN ==================================="),
     writeln(""),
-    writeln("Di sistem memungkinkan anda untuk berkonsultasi untuk kemungkinan gejala kejiwaan berikut:"),
-     writeln("1. Psikopat"),
-     writeln("2. Skizofrenia Disorganized"),
-     writeln("3. Skizofrenia Katatonik"),
-     writeln("4. Skizofrenia Paranoid)"),
-     writeln("5. Bipolar Tipe 1"),
-     writeln("6. Bipolar Tipe 2"),
-     writeln(""),
+    writeln("Sistem ini membantu Anda berkonsultasi kemungkinan gejala kejiwaan berikut:"),
+    writeln("1. Psikopat"),
+    writeln("2. Skizofrenia Disorganized"),
+    writeln("3. Skizofrenia Katatonik"),
+    writeln("4. Skizofrenia Paranoid"),
+    writeln("5. Bipolar Tipe 1"),
+    writeln("6. Bipolar Tipe 2"),
+    writeln(""),
     writeln("Silahkan masukan 'konsultasi.' di command line untuk melakukan konsultasi di sistem kami").
-
